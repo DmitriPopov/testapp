@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Build containers
 
-Things you may want to cover:
+docker-compose build
 
-* Ruby version
+2. Run contaiers
 
-* System dependencies
+docker-compose up
 
-* Configuration
+3. Create database
 
-* Database creation
+docker-compose run web rake db:create
 
-* Database initialization
+4. Run migrations
 
-* How to run the test suite
+docker-compose run web rake db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+5. Seed database with Wiki data
 
-* Deployment instructions
+docker-compose run web rake db:seed
 
-* ...
+6. Test API
+
+GET http://localhost:3000/medical_procedures?searchquery=test
